@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_car_app/main.dart';
+import 'package:flutter_car_app/src/details_car.dart';
 
 
 // class ViewFiltre extends StatefulWidget {
@@ -67,8 +68,8 @@ class FiltreView extends StatelessWidget {
   const FiltreView({super.key, required this.name});
   final String name;
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> listFiltre = items
-        .where((element) => element['marque']
+    final List<Voiture> listFiltre = items
+        .where((element) => element.marque
             .toString()
             .toLowerCase()
             .contains(name.toLowerCase()))
@@ -90,11 +91,20 @@ class FiltreView extends StatelessWidget {
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: ((context, index) {
-          return GridItem(
-            name: listFiltre[index]['name'],
-            image: listFiltre[index]["image"],
-            price: listFiltre[index]["price"],
-          );
+          return  GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => MyAppDetails(
+                    model_cars: items[index].marque,
+                    brand: items[index].marque,
+                    image: items[index].imageUrl)));
+          },
+          child: GridItem(
+            name: items[index].marque,
+            image: items[index].imageUrl,
+            price: items[index].price,
+          ),
+        );
         }),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_car_app/main.dart';
+import 'package:flutter_car_app/src/contrat.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -67,9 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           SizedBox(
             height: 100,
-            child: DrawerHeader(
-                child: Image.asset(
-                    "images_Cars/ertiga-exterior-right-front-three-quarter-5.webp")),
+            child: DrawerHeader(child: Image.asset("images_Cars/logo_app.jpg")),
           ),
           DrawerListTitle(icon: Icons.home, title: 'Acceuil', onTap: () {}),
           DrawerListTitle(
@@ -101,13 +100,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ListTile(
                   title: const Text('Louer voiture'),
                   onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) =>  MyApp()));
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => MyApp()));
                   },
                 ),
                 ListTile(
                   title: const Text('Contrat'),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Contrat()));
+                  },
                 ),
               ],
             ),

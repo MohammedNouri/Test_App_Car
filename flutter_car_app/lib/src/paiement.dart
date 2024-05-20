@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_car_app/src/contrat.dart';
 import 'package:flutter_paypal_checkout/flutter_paypal_checkout.dart';
 
 class PaimentPage extends StatelessWidget {
@@ -49,7 +50,7 @@ class _PaimentPageState extends State<_PaimentPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Image.asset(
-                    "images/carte_bancaire.png",
+                    "images_Cars/carte_bancaire.jpg",
                     width: 290,
                     height: 150,
                   ),
@@ -158,6 +159,8 @@ class _PaimentPageState extends State<_PaimentPage> {
                                   cvcController.text,
                                   1000,
                                 );
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const Contrat()));
                               }
                             },
                             style: ElevatedButton.styleFrom(

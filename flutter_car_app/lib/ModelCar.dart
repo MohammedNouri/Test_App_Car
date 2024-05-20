@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_car_app/ViewFiltre.dart';
+import 'package:flutter_car_app/src/SideMenu.dart';
+
 const Color darkBlue = Color.fromARGB(255, 18, 40, 47);
- 
+
 // void main() {
 //   runApp(const MyApp11_part());
 // }
- 
+
 class MyApp11_part extends StatelessWidget {
   const MyApp11_part({Key? key}) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,41 +18,13 @@ class MyApp11_part extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-        title:  const Text("page Home",style:TextStyle(fontSize: 32),),
-     actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Container(
-              height: 50,
-              width: 50,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-            ),
+          title: const Text(
+            "page Home",
+            style: TextStyle(fontSize: 32),
           ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text("Home"),
-              onTap: () => Navigator.pop(context),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.train,
-              ),
-              title: const Text('Page 2'),
-              onTap: () {
-                // Navigator.pop(context);
-              },
-            ),
-          ],
+          centerTitle: true,
         ),
-      ),
+        drawer: const SideMenu(),
         body: Center(
           child: ExampleParallax(),
         ),
@@ -58,10 +32,10 @@ class MyApp11_part extends StatelessWidget {
     );
   }
 }
- 
+
 class ExampleParallax extends StatelessWidget {
   const ExampleParallax({Key? key}) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -74,7 +48,8 @@ class ExampleParallax extends StatelessWidget {
               country: location.place,
               onTap: () {
                 //  event onclick on image
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FiltreView(name: location.name)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => FiltreView(name: location.name)));
               },
             ),
         ],
@@ -82,7 +57,7 @@ class ExampleParallax extends StatelessWidget {
     );
   }
 }
- 
+
 class LocationListItem extends StatelessWidget {
   LocationListItem({
     required this.imageUrl,
@@ -90,12 +65,12 @@ class LocationListItem extends StatelessWidget {
     required this.country,
     required this.onTap,
   });
- 
+
   final String imageUrl;
   final String name;
   final String country;
   final VoidCallback onTap;
- 
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -121,6 +96,7 @@ class LocationListItem extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildGradient() {
     return Positioned.fill(
       child: DecoratedBox(
@@ -135,7 +111,7 @@ class LocationListItem extends StatelessWidget {
       ),
     );
   }
- 
+
   Widget _buildTitleAndSubtitle() {
     return Positioned(
       left: 20,
@@ -164,19 +140,19 @@ class LocationListItem extends StatelessWidget {
     );
   }
 }
- 
+
 class Location {
   const Location({
     required this.name,
     required this.place,
     required this.imageUrl,
   });
- 
+
   final String name;
   final String place;
   final String imageUrl;
 }
- 
+
 const locations = [
   Location(
     name: 'Dacia',

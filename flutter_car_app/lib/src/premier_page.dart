@@ -24,12 +24,12 @@ class HomePage extends StatelessWidget {
         title: const Text(''),
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/arrier_plan.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
+        // decoration: const BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage("images/arrier_plan.png"),
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

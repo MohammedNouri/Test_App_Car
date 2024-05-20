@@ -1,110 +1,170 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_car_app/drop.dart';
 import 'package:flutter_car_app/src/SideMenu.dart';
-import 'package:flutter_car_app/src/contrat.dart';
-import 'package:flutter_car_app/src/contrat_info.dart';
-import 'package:flutter_car_app/src/login.dart';
-import 'package:flutter_car_app/src/sign_in.dart';
+import 'package:flutter_car_app/src/details_car.dart';
+import 'package:flutter_car_app/src/premier_page.dart';
 
-final List<Map<String, dynamic>> items = [
-  {
-    "marque": 'Mercedes-Benz',
-    "name": "Item 1",
-    "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
-    "price": "16"
-  },
-  {
-    "marque": 'Mercedes-Benz',
-    "name": "Item 2",
-    "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
-    "price": "19"
-  },
-  {
-    "marque": 'Mercedes-Benz',
-    "name": "Item 3",
-    "image":
-        'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
-    "price": "10"
-  },
-  {
-    "name": "Item 1",
-    "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
-    "price": "25"
-  },
-  {
-    "marque": 'Peugeot',
-    "name": "Item 2",
-    "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
-    "price": "9"
-  },
-  {
-    "marque": 'Peugeot',
-    "name": "Item 3",
-    "image":
-        'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
-    "price": "84"
-  },
-  {
-    "marque": 'Peugeot',
-    "name": "Item 1",
-    "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
-    "price": "17"
-  },
-  {
-    "marque": 'Peugeot',
-    "name": "Item 2",
-    "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
-    "price": "29"
-  },
-  {
-    "marque": "Dacia",
-    "name": "Item 3",
-    "image":
-        'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
-    "price": "36"
-  },
-  {
-    "marque": "Dacia",
-    "name": "Item 1",
-    "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
-    "price": "27"
-  },
-  {
-    "marque": 'Bentley',
-    "name": "Item 2",
-    "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
-    "price": "32"
-  },
-  {
-    "marque": 'Mercedes-Benz',
-    "name": "Item 3",
-    "image":
-        'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
-    "price": "29"
-  },
-  {
-    "marque": 'Peugeot',
-    "name": "Item 1",
-    "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
-    "price": "14"
-  },
-  {
-    "marque": 'Opel',
-    "name": "Item 2",
-    "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
-    "price": "24"
-  },
-  {
-    "marque": "Dacia",
-    "name": "Item 3",
-    "image":
-        'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
-    "price": "8"
-  },
-  // Add more items as needed
+class Voiture {
+  Voiture({
+    required this.marque,
+    required this.name,
+    required this.price,
+    required this.imageUrl,
+  });
+  String price;
+  String name;
+  String marque;
+  String imageUrl;
+}
+
+// const  items = [
+//   Voiture(marque: 'Mercedes-Benz', name: "Item 1", price: '16', imageUrl: 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp'),
+//   Voiture(marque: 'Mercedes-Benz', name: "Item 2", price: "19", imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp')
+//   {
+//     "marque": 'Mercedes-Benz',
+//     "name": "Item 3",
+//     "image":
+//         'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
+//     "price": "10"
+//   },
+
+//   {
+//     "marque": 'Peugeot',
+//     "name": "Item 2",
+//     "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
+//     "price": "9"
+//   },
+//   {
+//     "marque": 'Peugeot',
+//     "name": "Item 3",
+//     "image":
+//         'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
+//     "price": "84"
+//   },
+//   {
+//     "marque": 'Peugeot',
+//     "name": "Item 1",
+//     "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
+//     "price": "17"
+//   },
+//   {
+//     "marque": 'Peugeot',
+//     "name": "Item 2",
+//     "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
+//     "price": "29"
+//   },
+//   {
+//     "marque": "Dacia",
+//     "name": "Item 3",
+//     "image":
+//         'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
+//     "price": "36"
+//   },
+//   {
+//     "marque": "Dacia",
+//     "name": "Item 1",
+//     "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
+//     "price": "27"
+//   },
+//   {
+//     "marque": 'Bentley',
+//     "name": "Item 2",
+//     "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
+//     "price": "32"
+//   },
+//   {
+//     "marque": 'Mercedes-Benz',
+//     "name": "Item 3",
+//     "image":
+//         'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
+//     "price": "29"
+//   },
+//   {
+//     "marque": 'Peugeot',
+//     "name": "Item 1",
+//     "image": 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp',
+//     "price": "14"
+//   },
+//   {
+//     "marque": 'Opel',
+//     "name": "Item 2",
+//     "image": 'images_Cars/i20-exterior-right-front-three-quarter-7.webp',
+//     "price": "24"
+//   },
+//   {
+//     "marque": "Dacia",
+//     "name": "Item 3",
+//     "image":
+//         'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp',
+//     "price": "8"
+//   },
+//   // Add more items as needed
+// ];
+var items = <Voiture>[
+  Voiture(
+      marque: 'Mercedes-Benz',
+      name: "Item 1",
+      price: '16',
+      imageUrl: 'images_Cars/ertiga-exterior-right-front-three-quarter-5.webp'),
+  Voiture(
+      marque: 'Mercedes-Benz',
+      name: "Item 2",
+      price: "19",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Mercedes-Benz',
+      name: "Item 3",
+      price: "10",
+      imageUrl:
+          'images_Cars/innova-crysta-exterior-right-front-three-quarter-2.webp'),
+  Voiture(
+      marque: 'Peugeot',
+      name: "Item 4",
+      price: "29",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Peugeot',
+      name: "Item 4",
+      price: "39",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Peugeot',
+      name: "Item 5",
+      price: "49",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Peugeot',
+      name: "Item 5",
+      price: "59",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: "Dacia",
+      name: "Item 4",
+      price: "69",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: "Dacia",
+      name: "Item 6",
+      price: "79",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Bentley',
+      name: "Item 7",
+      price: "89",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Bentley',
+      name: "Item 7",
+      price: "99",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
+  Voiture(
+      marque: 'Opel',
+      name: "Item 6",
+      price: "109",
+      imageUrl: 'images_Cars/i20-exterior-right-front-three-quarter-7.webp'),
 ];
 void main() {
-  runApp( Contrat());
+  runApp(PremierPage());
 }
 
 class GridItem extends StatelessWidget {
@@ -232,9 +292,9 @@ class SearchBarDelegate extends SearchDelegate<List<Map<String, dynamic>>> {
       itemCount: serchFct(name, query).length,
       itemBuilder: (BuildContext context, int index) {
         return GridItem(
-          name: serchFct(name, query)[index][name],
-          image: serchFct(name, query)[index][image],
-          price: serchFct(name, query)[index][price],
+          name: serchFct(name, query)[index].name,
+          image: serchFct(name, query)[index].imageUrl,
+          price: serchFct(name, query)[index].price,
         );
       },
     );
@@ -248,9 +308,9 @@ class SearchBarDelegate extends SearchDelegate<List<Map<String, dynamic>>> {
       itemCount: suggsetionFct(name, query).length,
       itemBuilder: (BuildContext context, int index) {
         return GridItem(
-          name: suggsetionFct(name, query)[index][name],
-          image: suggsetionFct(name, query)[index][image],
-          price: suggsetionFct(name, query)[index][price],
+          name: suggsetionFct(name, query)[index].name,
+          image: suggsetionFct(name, query)[index].imageUrl,
+          price: suggsetionFct(name, query)[index].price,
         );
       },
     );
@@ -266,12 +326,21 @@ class ListViewWidgetd extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) {
         items.sort(
-          (a, b) => int.parse(a['price']).compareTo(int.parse(b['price'])),
+          (a, b) => int.parse(a.price).compareTo(int.parse(b.price)),
         );
-        return GridItem(
-          name: items[index]["name"],
-          image: items[index]["image"],
-          price: items[index]["price"],
+        return  GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => MyAppDetails(
+                    model_cars: items[index].marque,
+                    brand: items[index].marque,
+                    image: items[index].imageUrl)));
+          },
+          child: GridItem(
+            name: items[index].marque,
+            image: items[index].imageUrl,
+            price: items[index].price,
+          ),
         );
       },
     );
@@ -287,13 +356,23 @@ class PlaceholderWidgetd extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) {
         items.sort(
-          (a, b) => int.parse(b['price']).compareTo(int.parse(a['price'])),
+          (a, b) => int.parse(b.price).compareTo(int.parse(a.price)),
         );
-        return GridItem(
-          name: items[index]["name"],
-          image: items[index]["image"],
-          price: items[index]["price"],
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => MyAppDetails(
+                    model_cars: items[index].marque,
+                    brand: items[index].marque,
+                    image: items[index].imageUrl)));
+          },
+          child: GridItem(
+            name: items[index].marque,
+            image: items[index].imageUrl,
+            price: items[index].price,
+          ),
         );
+        
       },
     );
   }
@@ -360,19 +439,18 @@ class _DarkView extends State<MyApp> {
   }
 }
 
-List<Map<String, dynamic>> serchFct(String name, String value) {
-  final List<Map<String, dynamic>> searchResults = items
-      .where(
-          (element) => element[name].toString().contains(value.toLowerCase()))
+List<Voiture> serchFct(String name, String value) {
+  final List<Voiture> searchResults = items
+      .where((element) => element.name.toString().contains(value.toLowerCase()))
       .toList();
   return searchResults;
 }
 
-List<Map<String, dynamic>> suggsetionFct(String name, String value) {
-  final List<Map<String, dynamic>> searchResults = value.isEmpty
+List<Voiture> suggsetionFct(String name, String value) {
+  final List<Voiture> searchResults = value.isEmpty
       ? []
       : items
-          .where((element) => element[name]
+          .where((element) => element.name
               .toString()
               .toLowerCase()
               .contains(value.toLowerCase()))

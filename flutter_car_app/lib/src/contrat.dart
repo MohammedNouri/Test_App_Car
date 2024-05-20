@@ -1,8 +1,8 @@
 import 'dart:io';
  
 import 'package:flutter/material.dart';
+import 'package:flutter_car_app/src/contrat_pdf.dart';
 import 'package:image_picker/image_picker.dart';
-import 'contrat_info.dart'; // Importer la page ContratInfo
  
 class Contrat extends StatelessWidget {
   const Contrat({Key? key}) : super(key: key);
